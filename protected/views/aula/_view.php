@@ -5,12 +5,12 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_Aula')); ?>:</b>
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('id_Aula')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_Aula), array('view', 'id'=>$data->id_Aula)); ?>
-	<br />
+	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
+	<?php echo CHtml::link(CHtml::encode($data->descricao), array('view', 'id'=>$data->id_Aula)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('conteudo')); ?>:</b>
@@ -33,7 +33,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_turma')); ?>:</b>
-	<?php echo CHtml::encode($data->codTurma->descricao); ?>
+	<?php echo CHtml::link(CHtml::encode($data->codTurma->descricao), 
+			array('turma/view', 'id'=>$data->codTurma->id_Turma)); ?>
 	<br />
 
 

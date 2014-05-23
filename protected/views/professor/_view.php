@@ -5,9 +5,9 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_Professor')); ?>:</b>
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('id_Professor')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_Professor), array('view', 'id'=>$data->id_Professor)); ?>
-	<br />
+	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
 	<?php echo CHtml::encode($data->nome); ?>

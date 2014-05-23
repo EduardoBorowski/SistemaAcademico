@@ -1,0 +1,10 @@
+ANOTAÇÕES DA ITERAÇÃO 2
+
+14/05
+- Importação do Projeto Sistema Acadêmico para o Eclipse.
+- Projeto compartilhado no GitHub através do Plugin EGit do Eclipse.
+
+21/05
+- Atualização do Caso de Uso "Gerenciar Aula" da Iteração I para os seguintes casos de uso: Registrar Aula, Visualizar Aula, Pesquisar Aulas.
+- Criação de links para redirecionar aulas e turmas na página de visualização de Aulas.
+- Criação dos menus para as páginas de Aulas, Turmas e Professores.
