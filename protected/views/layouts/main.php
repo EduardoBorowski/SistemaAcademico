@@ -28,13 +28,19 @@
 
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
+			/*'activeCssClass'=>'active',
+			'activateParents'=>true,*/
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				// array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				// array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Aulas', 'url'=>array('/aula/index')),
-				array('label'=>'Turmas', 'url'=>array('/turma/index')),
-				array('label'=>'Professores', 'url'=>array('/professor/index')),
+				array('label'=>'Aulas', 'url'=>array('/aula/index'), 'visible'=>!Yii::app()->user->isGuest
+					/*'items'=>array(
+						array('label'=>'Visualizar Aulas', 'url'=>array('/aula/index')),
+					),*/
+				),
+				array('label'=>'Turmas', 'url'=>array('/turma/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Professores', 'url'=>array('/professor/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
