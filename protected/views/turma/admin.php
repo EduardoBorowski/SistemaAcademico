@@ -49,6 +49,11 @@ ou <b>=</b>) no início de cada um dos seus valores de pesquisa para especificar
 		'descricao',
 		array('name'=>'cod_prof', 'header'=>'Professor', 'value'=>'$data->codProf->nome'),
 		array(
+			'header'=>'Aulas', // give new column a header
+			'type'=>'HTML', // set it to manual HTML
+			'value'=>'$data->aulasToString()' // here is where you call the new function
+		),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

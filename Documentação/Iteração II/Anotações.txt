@@ -11,3 +11,7 @@ ANOTATAÇÕES DA ITERAÇÃO 2
 
 24/05
 - Alteração de "visibilidade" para usuário autenticado.
+
+28/05
+- Criação de método toString() para listar turmas para os professores no CGridView, CDetailView e *CListView.
+- Criação de método toString() para listar aulas para as turmas no CGridView, CDetailView e *CListView.

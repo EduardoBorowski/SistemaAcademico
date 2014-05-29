@@ -18,5 +18,8 @@
 			array('professor/view', 'id'=>$data->codProf->id_Professor)); ?>
 	<br />
 
+	<b>Aulas:</b>
+	<?php echo CHtml::encode($data->aulasToString()); ?>
+	<br />
 
 </div>

@@ -24,5 +24,10 @@ $this->menu=array(
 		'id_Turma',
 		'descricao',
 		array('label'=>'Professor', 'value'=>$model->codProf->nome),
+		array(
+			'name'=>'Aulas', // give new column a name
+			'type'=>'HTML', // set it to manual HTML
+			'value'=>$model->aulasToString() // here is where you call the new function
+		),
 	),
 )); ?>

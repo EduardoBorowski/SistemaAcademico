@@ -50,6 +50,11 @@ ou <b>=</b>) no início de cada um dos seus valores de pesquisa para especificar
 		'username',
 		'password',
 		array(
+			'header'=>'Turmas', // give new column a header
+			'type'=>'HTML', // set it to manual HTML
+			'value'=>'$data->turmasToString()' // here is where you call the new function
+		),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

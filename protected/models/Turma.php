@@ -51,6 +51,15 @@ class Turma extends CActiveRecord
 			'codProf' => array(self::BELONGS_TO, 'Professor', 'cod_prof'),
 		);
 	}
+	
+	// função para retornar lista de aulas para a turma
+	public function aulasToString() {
+		$return = '';
+		foreach ($this->aulas as $aula) {
+			$return .= $aula->descricao.'<br>';
+		}
+		return $return;
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

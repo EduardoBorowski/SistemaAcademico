@@ -10,7 +10,7 @@
 	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::encode($data->nome); ?>
+	<?php echo CHtml::link(CHtml::encode($data->nome), array('view', 'id'=>$data->id_Professor)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
@@ -20,6 +20,9 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
 	<?php echo CHtml::encode($data->password); ?>
 	<br />
-
+	
+	<b>Turmas:</b>
+	<?php echo CHtml::encode($data->turmasToString()); ?>
+	<br />
 
 </div>

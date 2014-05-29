@@ -25,5 +25,10 @@ $this->menu=array(
 		'nome',
 		'username',
 		'password',
+		array(
+			'name'=>'Turmas', // give new column a name
+			'type'=>'HTML', // set it to manual HTML
+			'value'=>$model->turmasToString() // here is where you call the new function
+		),
 	),
 )); ?>
