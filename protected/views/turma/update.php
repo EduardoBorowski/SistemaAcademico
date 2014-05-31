@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Turmas'=>array('index'),
 	$model->id_Turma=>array('view','id'=>$model->id_Turma),
-	'Alterar',
+	'Editar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Alterar Turma <?php echo $model->id_Turma; ?></h1>
+<h1>Editar Turma <?php echo $model->id_Turma; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

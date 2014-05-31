@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Aulas'=>array('index'),
 	$model->id_Aula=>array('view','id'=>$model->id_Aula),
-	'Alterar',
+	'Editar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Alterar Aula <?php echo $model->id_Aula; ?></h1>
+<h1>Editar Aula <?php echo $model->id_Aula; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -21,5 +21,9 @@
 	<b>Aulas:</b>
 	<?php echo CHtml::encode($data->aulasToString()); ?>
 	<br />
+	
+	<b>Alunos:</b>
+	<?php echo CHtml::encode($data->alunosToString()); ?>
+	<br />
 
 </div>

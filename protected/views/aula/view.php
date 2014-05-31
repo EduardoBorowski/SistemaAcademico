@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Aulas', 'url'=>array('index')),
 	array('label'=>'Registrar Aula', 'url'=>array('create')),
-	array('label'=>'Alterar Aula', 'url'=>array('update', 'id'=>$model->id_Aula)),
+	array('label'=>'Editar Aula', 'url'=>array('update', 'id'=>$model->id_Aula)),
 	array('label'=>'Excluir Aula', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Aula),'confirm'=>'Você têm certeza que quer excluir este item?')),
 	array('label'=>'Pesquisar Aulas', 'url'=>array('admin')),
 );

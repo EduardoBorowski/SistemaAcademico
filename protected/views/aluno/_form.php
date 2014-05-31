@@ -1,13 +1,13 @@
 <?php
-/* @var $this AulaController */
-/* @var $model Aula */
+/* @var $this AlunoController */
+/* @var $model Aluno */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'aula-form',
+	'id'=>'aluno-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -20,33 +20,15 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'descricao'); ?>
-		<?php echo $form->textField($model,'descricao',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'descricao'); ?>
+		<?php echo $form->labelEx($model,'nome'); ?>
+		<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'nome'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'conteudo'); ?>
-		<?php echo $form->textField($model,'conteudo',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'conteudo'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'dataAula'); ?>
-		<?php echo $form->textField($model,'dataAula'); ?>
-		<?php echo $form->error($model,'dataAula'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'horaInicio'); ?>
-		<?php echo $form->textField($model,'horaInicio'); ?>
-		<?php echo $form->error($model,'horaInicio'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'horaTermino'); ?>
-		<?php echo $form->textField($model,'horaTermino'); ?>
-		<?php echo $form->error($model,'horaTermino'); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">

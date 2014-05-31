@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Turmas', 'url'=>array('index')),
 	array('label'=>'Cadastrar Turma', 'url'=>array('create')),
-	array('label'=>'Alterar Turma', 'url'=>array('update', 'id'=>$model->id_Turma)),
+	array('label'=>'Editar Turma', 'url'=>array('update', 'id'=>$model->id_Turma)),
 	array('label'=>'Excluir Turma', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Turma),'confirm'=>'Você têm certeza que quer excluir este item?')),
 	array('label'=>'Pesquisar Turmas', 'url'=>array('admin')),
 );
@@ -28,6 +28,11 @@ $this->menu=array(
 			'name'=>'Aulas', // give new column a name
 			'type'=>'HTML', // set it to manual HTML
 			'value'=>$model->aulasToString() // here is where you call the new function
+		),
+		array(
+			'name'=>'Alunos', // give new column a name
+			'type'=>'HTML', // set it to manual HTML
+			'value'=>$model->alunosToString() // here is where you call the new function
 		),
 	),
 )); ?>

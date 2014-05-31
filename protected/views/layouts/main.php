@@ -24,6 +24,16 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="usuarioLogado">
+				<?php
+				if(isset($_SESSION["usuario"])) {
+					$user = $_SESSION["usuario"];
+					echo "Seja bem-vindo, professor(a) ".$user->nome."!";
+				} else {
+					echo "<br>";
+				}
+			  	?></div>
+		
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -31,16 +41,13 @@
 			/*'activeCssClass'=>'active',
 			'activateParents'=>true,*/
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
+				// array('label'=>'Home', 'url'=>array('/site/index'), 'visible'=>Yii::app()->user->isGuest),
 				// array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				// array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Aulas', 'url'=>array('/aula/index'), 'visible'=>!Yii::app()->user->isGuest
-					/*'items'=>array(
-						array('label'=>'Visualizar Aulas', 'url'=>array('/aula/index')),
-					),*/
-				),
+				array('label'=>'Aulas', 'url'=>array('/aula/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Turmas', 'url'=>array('/turma/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Professores', 'url'=>array('/professor/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Alunos', 'url'=>array('/aluno/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

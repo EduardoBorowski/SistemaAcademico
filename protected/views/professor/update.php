@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Professores'=>array('index'),
 	$model->id_Professor=>array('view','id'=>$model->id_Professor),
-	'Alterar',
+	'Editar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Alterar Professor <?php echo $model->id_Professor; ?></h1>
+<h1>Editar Professor <?php echo $model->id_Professor; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -6,7 +6,7 @@ ANOTATAÇÕES DA ITERAÇÃO 2
 
 21/05
 - Atualização do Caso de Uso "Gerenciar Aula" da Iteração I para os seguintes casos de uso: Registrar Aula, Visualizar Aula, Pesquisar Aulas.
-- Criação de links para redirecionar aulas e turmas na página de visualização de Aulas.
+- Criação de links para redirecionar aulas e turmas na página com a lista de Aulas.
 - Criação dos menus para as páginas de Aulas, Turmas e Professores.
 
 24/05
@@ -15,3 +15,14 @@ ANOTATAÇÕES DA ITERAÇÃO 2
 28/05
 - Criação de método toString() para listar turmas para os professores no CGridView, CDetailView e *CListView.
 - Criação de método toString() para listar aulas para as turmas no CGridView, CDetailView e *CListView.
+
+30/05
+- Criação da Tabela "Aluno" no "Banco ER" e no Banco de Dados "sistacademico".
+- Dados inseridos na tabela "Aluno" no BD.
+- Model e CRUD para "Aluno" no gii (Yii code generator).
+- Criação de método toString() para listar alunos para as turmas no CGridView, CDetailView e *CListView.
+- Criação do menu para a página de Alunos.
+- Criação de links para redirecionar turmas e professores na página com a lista de turmas.
+- Criação de uma "dropdownlist" no formulário de cadastro de alunos com a lista de turmas.
+- Autenticação alterada para o usuário utilizar os dados da tabela "Professor".
+- Saudação para o professor logado no topo da página.

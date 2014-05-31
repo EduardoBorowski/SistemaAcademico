@@ -1,15 +1,15 @@
 <?php
-/* @var $this TurmaController */
-/* @var $model Turma */
+/* @var $this AlunoController */
+/* @var $model Aluno */
 
 $this->breadcrumbs=array(
-	'Turmas'=>array('index'),
+	'Alunos'=>array('index'),
 	'Pesquisar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Turmas', 'url'=>array('index')),
-	array('label'=>'Cadastrar Turma', 'url'=>array('create')),
+	array('label'=>'Listar Alunos', 'url'=>array('index')),
+	array('label'=>'Cadastrar Aluno', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#turma-grid').yiiGridView('update', {
+	$('#aluno-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Pesquisar Turmas</h1>
+<h1>Pesquisar Alunos</h1>
 
 <p>
 Você pode, opcionalmente, digitar um operador de comparação (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,23 +41,14 @@ ou <b>=</b>) no início de cada um dos seus valores de pesquisa para especificar
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'turma-grid',
+	'id'=>'aluno-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id_Turma',
-		'descricao',
-		array('name'=>'cod_prof', 'header'=>'Professor', 'value'=>'$data->codProf->nome'),
-		array(
-			'header'=>'Aulas', // give new column a header
-			'type'=>'HTML', // set it to manual HTML
-			'value'=>'$data->aulasToString()' // here is where you call the new function
-		),
-		array(
-			'header'=>'Alunos', // give new column a header
-			'type'=>'HTML', // set it to manual HTML
-			'value'=>'$data->alunosToString()' // here is where you call the new function
-		),
+		'id_Aluno',
+		'nome',
+		'email',
+		array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
 		array(
 			'class'=>'CButtonColumn',
 		),

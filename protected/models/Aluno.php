@@ -1,25 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "turma".
+ * This is the model class for table "aluno".
  *
- * The followings are the available columns in table 'turma':
- * @property integer $id_Turma
- * @property string $descricao
- * @property integer $cod_prof
+ * The followings are the available columns in table 'aluno':
+ * @property integer $id_Aluno
+ * @property string $nome
+ * @property string $email
+ * @property integer $cod_turma
  *
  * The followings are the available model relations:
- * @property Aula[] $aulas
- * @property Professor $codProf
+ * @property Turma $codTurma
  */
-class Turma extends CActiveRecord
+class Aluno extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'turma';
+		return 'aluno';
 	}
 
 	/**
@@ -30,12 +30,12 @@ class Turma extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_prof', 'required'),
-			array('cod_prof', 'numerical', 'integerOnly'=>true),
-			array('descricao', 'length', 'max'=>200),
+			array('cod_turma', 'required'),
+			array('cod_turma', 'numerical', 'integerOnly'=>true),
+			array('nome, email', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_Turma, descricao, cod_prof', 'safe', 'on'=>'search'),
+			array('id_Aluno, nome, email, cod_turma', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,28 +47,8 @@ class Turma extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'aulas' => array(self::HAS_MANY, 'Aula', 'cod_turma'),
-			'codProf' => array(self::BELONGS_TO, 'Professor', 'cod_prof'),
-			'alunos' => array(self::HAS_MANY, 'Aluno', 'cod_turma'),
+			'codTurma' => array(self::BELONGS_TO, 'Turma', 'cod_turma'),
 		);
-	}
-	
-	// função para retornar lista de "aulas" para a turma
-	public function aulasToString() {
-		$return = '';
-		foreach ($this->aulas as $aula) {
-			$return .= $aula->descricao.'<br>';
-		}
-		return $return;
-	}
-	
-	// função para retornar lista de "alunos" para a turma
-	public function alunosToString() {
-		$return = '';
-		foreach ($this->alunos as $aluno) {
-			$return .= $aluno->nome.'<br>';
-		}
-		return $return;
 	}
 
 	/**
@@ -77,9 +57,10 @@ class Turma extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_Turma' => 'Id Turma',
-			'descricao' => 'Turma',
-			'cod_prof' => 'Professor',
+			'id_Aluno' => 'Id Aluno',
+			'nome' => 'Nome',
+			'email' => 'Email',
+			'Turma' => 'Cod Turma',
 		);
 	}
 
@@ -101,9 +82,10 @@ class Turma extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_Turma',$this->id_Turma);
-		$criteria->compare('descricao',$this->descricao,true);
-		$criteria->compare('cod_prof',$this->cod_prof);
+		$criteria->compare('id_Aluno',$this->id_Aluno);
+		$criteria->compare('nome',$this->nome,true);
+		$criteria->compare('email',$this->email,true);
+		$criteria->compare('cod_turma',$this->cod_turma);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -114,7 +96,7 @@ class Turma extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Turma the static model class
+	 * @return Aluno the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

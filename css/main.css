@@ -22,6 +22,15 @@ body
 	border-top: 3px solid red /*#C9E0ED*/;
 }
 
+#usuarioLogado
+{
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
 #content
 {
     padding: 20px;
