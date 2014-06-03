@@ -9,9 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Turmas', 'url'=>array('index')),
-	array('label'=>'Cadastrar Turma', 'url'=>array('create')),
-	array('label'=>'Editar Turma', 'url'=>array('update', 'id'=>$model->id_Turma)),
-	array('label'=>'Excluir Turma', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Turma),'confirm'=>'Você têm certeza que quer excluir este item?')),
+	array('label'=>'Cadastrar Turma', 'url'=>array('create'), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Editar Turma', 'url'=>array('update', 'id'=>$model->id_Turma), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Excluir Turma', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Turma),
+			'confirm'=>'Você têm certeza que quer excluir este item?'), 'visible'=>Yii::app()->user->name == "admin"),
 	array('label'=>'Pesquisar Turmas', 'url'=>array('admin')),
 );
 ?>

@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'conteudo'); ?>
-		<?php echo $form->textField($model,'conteudo',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textArea($model,'conteudo',array('size'=>60,'maxlength'=>200)); ?>
 		<?php echo $form->error($model,'conteudo'); ?>
 	</div>
 

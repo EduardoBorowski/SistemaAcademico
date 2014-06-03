@@ -1,11 +1,11 @@
-ANOTATAÇÕES DA ITERAÇÃO 2
+ANOTATAÇÕES DA ITERAÇÃO II
 
 14/05
 - Importação do Projeto Sistema Acadêmico para o Eclipse.
 - Projeto compartilhado no GitHub através do Plugin EGit do Eclipse.
 
 21/05
-- Atualização do Caso de Uso "Gerenciar Aula" da Iteração I para os seguintes casos de uso: Registrar Aula, Visualizar Aula, Pesquisar Aulas.
+- (Documentação) Atualização do Caso de Uso "Gerenciar Aula" da Iteração I para os seguintes casos de uso: Registrar Aula, Visualizar Aula, Pesquisar Aulas.
 - Criação de links para redirecionar aulas e turmas na página com a lista de Aulas.
 - Criação dos menus para as páginas de Aulas, Turmas e Professores.
 
@@ -17,7 +17,7 @@ ANOTATAÇÕES DA ITERAÇÃO 2
 - Criação de método toString() para listar aulas para as turmas no CGridView, CDetailView e *CListView.
 
 30/05
-- Criação da Tabela "Aluno" no "Banco ER" e no Banco de Dados "sistacademico".
+- (Documentação) Criação da Tabela "Aluno" no "Banco ER" e no Banco de Dados "sistacademico".
 - Dados inseridos na tabela "Aluno" no BD.
 - Model e CRUD para "Aluno" no gii (Yii code generator).
 - Criação de método toString() para listar alunos para as turmas no CGridView, CDetailView e *CListView.
@@ -26,3 +26,24 @@ ANOTATAÇÕES DA ITERAÇÃO 2
 - Criação de uma "dropdownlist" no formulário de cadastro de alunos com a lista de turmas.
 - Autenticação alterada para o usuário utilizar os dados da tabela "Professor".
 - Saudação para o professor logado no topo da página.
+
+02/06
+- Redirecionamento do usuário que efetuou Login para a página com a lista de aulas.
+- Menus "Professores" e "Alunos" habilitados apenas para usuário "admin".
+- Utilização de "session_start()" na página index.php para visualizar da saudação.
+- Ações "index", "view" e "admin" disponíveis para qualquer usuário autenticado.
+- Ações "create", "update", e "delete" disponíveis apenas para usuário "admin", exceto para "Aulas".
+
+03/06
+- (Documentação) Atualização do Diagrama de Casos de Uso adicionando:
+	- Caso de Uso: Visualizar Aula.
+	- Caso de Uso: Registrar Aula.
+	- Caso de Uso: Pesquisar Aulas.
+	- Caso de Uso: Editar Aula.
+	- Caso de Uso: Excluir Aula.
+	- Caso de Uso: Efetuar Login.
+- (Documentação) Descrição do Caso de Uso "Visualizar Aula".
+- (Documentação) Descrição do Caso de Uso "Registrar Aula".
+- (Documentação) Descrição do Caso de Uso "Pesquisar Aulas".
+- Menus "Registrar Turma", "Editar Turma", "Excluir Turma", "Registrar Professor", "Editar Professor", "Excluir Professor",
+	 "Registrar Aluno", "Editar Aluno, "Excluir Aluno" habilitados apenas para usuário "admin" nas "view.php".

@@ -45,6 +45,13 @@ div.form select
 	margin: 0.2em 0 0.5em 0;
 }
 
+div.form textarea
+{
+	font: normal 10pt Calibri,Helvetica,sans-serif;
+	width: 350px;
+	height: 60px;
+}
+
 div.form fieldset
 {
 	border: 1px solid #DDD;

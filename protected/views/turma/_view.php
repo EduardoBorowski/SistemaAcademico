@@ -18,12 +18,12 @@
 			array('professor/view', 'id'=>$data->codProf->id_Professor)); ?>
 	<br />
 
-	<b>Aulas:</b>
+	<!-- <b>Aulas:</b>
 	<?php echo CHtml::encode($data->aulasToString()); ?>
-	<br />
+	<br /> -->
 	
-	<b>Alunos:</b>
+	<!-- <b>Alunos:</b>
 	<?php echo CHtml::encode($data->alunosToString()); ?>
-	<br />
+	<br /> -->
 
 </div>

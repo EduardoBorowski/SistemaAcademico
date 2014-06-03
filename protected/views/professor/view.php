@@ -9,9 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Professores', 'url'=>array('index')),
-	array('label'=>'Cadastrar Professor', 'url'=>array('create')),
-	array('label'=>'Editar Professor', 'url'=>array('update', 'id'=>$model->id_Professor)),
-	array('label'=>'Excluir Professor', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Professor),'confirm'=>'Você têm certeza que quer excluir este item?')),
+	array('label'=>'Cadastrar Professor', 'url'=>array('create'), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Editar Professor', 'url'=>array('update', 'id'=>$model->id_Professor), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Excluir Professor', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Professor),
+			'confirm'=>'Você têm certeza que quer excluir este item?'), 'visible'=>Yii::app()->user->name == "admin"),
 	array('label'=>'Pesquisar Professores', 'url'=>array('admin')),
 );
 ?>

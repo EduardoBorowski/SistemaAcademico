@@ -28,11 +28,20 @@
 				<?php
 				if(isset($_SESSION["usuario"])) {
 					$user = $_SESSION["usuario"];
-					echo "Seja bem-vindo, professor(a) ".$user->nome."!";
-				} else {
+					$nomeUsuario = $user->nome;
+					$usernameUsuario = $user->username;
+					if($usernameUsuario == "admin") {
+						echo "(Modo ".$nomeUsuario.")";
+					}
+					else {
+						echo "Seja bem-vindo, professor(a) ".$nomeUsuario."!";
+					}
+				} 
+				else {
 					echo "<br>";
 				}
-			  	?></div>
+			  	?>
+		</div>
 		
 	</div><!-- header -->
 
@@ -46,8 +55,8 @@
 				// array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Aulas', 'url'=>array('/aula/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Turmas', 'url'=>array('/turma/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Professores', 'url'=>array('/professor/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Alunos', 'url'=>array('/aluno/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Professores', 'url'=>array('/professor/index'), 'visible'=>Yii::app()->user->name == "admin"),
+				array('label'=>'Alunos', 'url'=>array('/aluno/index'), 'visible'=>Yii::app()->user->name == "admin"),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

@@ -9,9 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Alunos', 'url'=>array('index')),
-	array('label'=>'Cadastrar Aluno', 'url'=>array('create')),
-	array('label'=>'Editar Aluno', 'url'=>array('update', 'id'=>$model->id_Aluno)),
-	array('label'=>'Excluir Aluno', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Aluno),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Cadastrar Aluno', 'url'=>array('create'), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Editar Aluno', 'url'=>array('update', 'id'=>$model->id_Aluno), 'visible'=>Yii::app()->user->name == "admin"),
+	array('label'=>'Excluir Aluno', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Aluno),
+			'confirm'=>'Você têm certeza que quer excluir este item?'), 'visible'=>Yii::app()->user->name == "admin"),
 	array('label'=>'Pesquisar Alunos', 'url'=>array('admin')),
 );
 ?>
