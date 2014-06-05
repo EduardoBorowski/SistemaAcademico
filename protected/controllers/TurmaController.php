@@ -122,10 +122,24 @@ class TurmaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Turma');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$userId = $_SESSION['usuario']->id_Professor;
+		$username = $_SESSION['usuario']->username;
+		if($username == "admin"){
+			$dataProvider=new CActiveDataProvider('Turma');
+			$this->render('index',array(
+					'dataProvider'=>$dataProvider,
+			));
+		}
+		else {
+			$dataProvider=new CActiveDataProvider('Turma', array(
+				'criteria'=>array(
+					'condition' => 'cod_prof='.$userId
+				),
+			));
+			$this->render('index',array(
+				'dataProvider'=>$dataProvider,
+			));
+		}
 	}
 
 	/**

@@ -33,7 +33,7 @@ class Aula extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_turma', 'required'),
+			array('cod_turma, descricao, dataAula, horaInicio, horaTermino', 'required'),
 			array('cod_turma', 'numerical', 'integerOnly'=>true),
 			array('descricao, conteudo', 'length', 'max'=>200),
 			array('dataAula, horaInicio, horaTermino', 'safe'),

@@ -13,8 +13,8 @@ ANOTATAÇÕES DA ITERAÇÃO II
 - Alteração de "visibilidade" para usuário autenticado.
 
 28/05
-- Criação de método toString() para listar turmas para os professores no CGridView, CDetailView e *CListView.
-- Criação de método toString() para listar aulas para as turmas no CGridView, CDetailView e *CListView.
+- Criação de método toString() para listar turmas para os professores no CGridView, CDetailView e CListView.
+- Criação de método toString() para listar aulas para as turmas no CGridView, CDetailView e CListView.
 
 30/05
 - (Documentação) Criação da Tabela "Aluno" no "Banco ER" e no Banco de Dados "sistacademico".
@@ -41,9 +41,16 @@ ANOTATAÇÕES DA ITERAÇÃO II
 	- Caso de Uso: Pesquisar Aulas.
 	- Caso de Uso: Editar Aula.
 	- Caso de Uso: Excluir Aula.
-	- Caso de Uso: Efetuar Login.
 - (Documentação) Descrição do Caso de Uso "Visualizar Aula".
 - (Documentação) Descrição do Caso de Uso "Registrar Aula".
 - (Documentação) Descrição do Caso de Uso "Pesquisar Aulas".
 - Menus "Registrar Turma", "Editar Turma", "Excluir Turma", "Registrar Professor", "Editar Professor", "Excluir Professor",
 	 "Registrar Aluno", "Editar Aluno, "Excluir Aluno" habilitados apenas para usuário "admin" nas "view.php".
+- Novos dados inseridos na tabela "Aluno" no BD.
+
+04/05
+- Utilização do CJuiDatePicker para o campo "dataAula" no formulário de Registro de Aula.
+- Alteração do método "actionIndex()" do "AulaController" para listar apenas as "aulas" do professor autenticado.
+- Alteração do método "actionIndex()" do "TurmaController" para listar apenas as "turmas" do professor autenticado.
+- Criação de duas "<div>" para fazer o método "toString()" ser mostrado corretamente na tela utilizando CListView.
+- Alteração das "rules" de todos os Models para os campos obrigatórios ao realizar cadastro.

@@ -122,7 +122,24 @@ class AulaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Aula');
+		$userId = $_SESSION['usuario']->id_Professor;
+		$username = $_SESSION['usuario']->username;
+		if($username == "admin"){
+			$dataProvider=new CActiveDataProvider('Aula');
+			$this->render('index',array(
+					'dataProvider'=>$dataProvider,
+			));
+		}
+		else {
+			$dataProvider = new CActiveDataProvider('Aula', array(
+				'criteria'=>array(
+				    'with'=>array(
+				        'codTurma'
+				    ),
+				    'condition' => 'codTurma.cod_prof='.$_SESSION['usuario']->id_Professor
+				),
+			));
+		}
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

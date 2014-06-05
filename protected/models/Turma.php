@@ -30,7 +30,7 @@ class Turma extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_prof', 'required'),
+			array('cod_prof, descricao', 'required'),
 			array('cod_prof', 'numerical', 'integerOnly'=>true),
 			array('descricao', 'length', 'max'=>200),
 			// The following rule is used by search().

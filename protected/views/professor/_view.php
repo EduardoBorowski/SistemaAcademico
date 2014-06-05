@@ -21,8 +21,8 @@
 	<?php echo CHtml::encode($data->password); ?>
 	<br />
 	
-	<!-- <b>Turmas:</b>
-	<?php echo CHtml::encode($data->turmasToString()); ?>
-	<br /> -->
+	<b class="porra">Turmas:</b><div class="porraloca">
+	<?php echo $data->turmasToString(); ?>
+	</div><br />
 
 </div>

@@ -33,19 +33,28 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dataAula'); ?>
-		<?php echo $form->textField($model,'dataAula'); ?>
+		<?php //echo $form->textField($model,'dataAula'); ?>
+		<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+				'attribute'=>'dataAula',
+				'model' => $model,
+				'language' => 'pt',
+				'options'=>array(
+						'dateFormat' => 'yy-mm-dd',
+				),
+				'htmlOptions'=>array('readonly'=>true)
+		)); ?>
 		<?php echo $form->error($model,'dataAula'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'horaInicio'); ?>
-		<?php echo $form->textField($model,'horaInicio'); ?>
+		<?php echo $form->textField($model,'horaInicio',array('size'=>8,'maxlength'=>8)); ?>
 		<?php echo $form->error($model,'horaInicio'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'horaTermino'); ?>
-		<?php echo $form->textField($model,'horaTermino'); ?>
+		<?php echo $form->textField($model,'horaTermino',array('size'=>8,'maxlength'=>8)); ?>
 		<?php echo $form->error($model,'horaTermino'); ?>
 	</div>
 

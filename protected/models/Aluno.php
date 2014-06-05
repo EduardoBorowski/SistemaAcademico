@@ -30,7 +30,7 @@ class Aluno extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_turma', 'required'),
+			array('cod_turma, nome, email', 'required'),
 			array('cod_turma', 'numerical', 'integerOnly'=>true),
 			array('nome, email', 'length', 'max'=>45),
 			// The following rule is used by search().
