@@ -48,9 +48,14 @@ ANOTATAÇÕES DA ITERAÇÃO II
 	 "Registrar Aluno", "Editar Aluno, "Excluir Aluno" habilitados apenas para usuário "admin" nas "view.php".
 - Novos dados inseridos na tabela "Aluno" no BD.
 
-04/05
+04/06
 - Utilização do CJuiDatePicker para o campo "dataAula" no formulário de Registro de Aula.
 - Alteração do método "actionIndex()" do "AulaController" para listar apenas as "aulas" do professor autenticado.
 - Alteração do método "actionIndex()" do "TurmaController" para listar apenas as "turmas" do professor autenticado.
 - Criação de duas "<div>" para fazer o método "toString()" ser mostrado corretamente na tela utilizando CListView.
 - Alteração das "rules" de todos os Models para os campos obrigatórios ao realizar cadastro.
+
+05/06
+- Alteração do redirecionamento do usuário para a página "index" ao efetuar uma exclusão (delete).
+- (Documentação) Descrição do Caso de Uso "Editar Aula".
+- (Documentação) Descrição do Caso de Uso "Excluir Aula".
