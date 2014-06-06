@@ -1,6 +1,7 @@
 <?php
 /* @var $this TurmaController */
 /* @var $data Turma */
+	$user = $_SESSION['usuario']->username;
 ?>
 
 <div class="view">
@@ -10,20 +11,22 @@
 	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->descricao), array('view', 'id'=>$data->id_Turma)); ?>
+	<?php echo CHtml::encode($data->descricao); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_prof')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->codProf->nome), 
-			array('professor/view', 'id'=>$data->codProf->id_Professor)); ?>
+	<?php echo CHtml::encode($data->codProf->nome);
+	 ?>
 	<br />
 
 	<b class="porra">Aulas:</b><div class="porraloca">
 	<?php echo $data->aulasToString(); ?>
 	</div><br />
 	
-	<b class="porra">Alunos:</b><div class="porraloca">
+	<!-- <b class="porra">Alunos:</b><div class="porraloca">
 	<?php echo $data->alunosToString(); ?>
-	</div><br />
+	</div><br /> -->
+	
+	<b><?php echo CHtml::link("Visualizar Turma", array('view', 'id'=>$data->id_Turma)); ?></b>
 
 </div>

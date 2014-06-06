@@ -25,6 +25,9 @@ $this->menu=array(
 		'id_Aluno',
 		'nome',
 		'email',
-		array('label'=>'Turma', 'value'=>$model->codTurma->descricao),
+		//array('label'=>'Turma', 'value'=>$model->codTurma->descricao),
+		array('label'=>'Turma',
+				'type'=>'raw',
+				'value'=>CHtml::link($model->codTurma->descricao, array('turma/view','id'=>$model->codTurma->id_Turma))),
 	),
 )); ?>

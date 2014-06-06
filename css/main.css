@@ -3,7 +3,7 @@ body
 	margin: 0;
 	padding: 0;
 	color: #555;
-	font: normal 10pt Calibri,Helvetica,sans-serif;
+	font: normal 11pt Calibri,Helvetica,sans-serif;
 	background: #EFEFEF;
 }
 
@@ -59,7 +59,7 @@ body
 
 #mainmenu
 {
-	background: -webkit-linear-gradient(left, #ff1111 0%,#9b0000 100%) /*url(bg.gif)*/ repeat-x left top;
+	background: -webkit-linear-gradient(left, #ff1111 0%,#9b0000 100%) repeat-x left top;
 }
 
 #mainmenu ul

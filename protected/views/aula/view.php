@@ -27,6 +27,9 @@ $this->menu=array(
 		array('name'=>'dataAula', 'value'=>date("d/m/Y", strtotime($model->dataAula))),
 		array('name'=>'horaInicio', 'value'=>date("H:i", strtotime($model->horaInicio))),
 		array('name'=>'horaTermino', 'value'=>date("H:i", strtotime($model->horaTermino))),
-		array('label'=>'Turma', 'value'=>$model->codTurma->descricao),
+		//array('label'=>'Turma', 'value'=>$model->codTurma->descricao),
+		array('label'=>'Turma', 
+				'type'=>'raw', 
+				'value'=>CHtml::link($model->codTurma->descricao, array('turma/view','id'=>$model->codTurma->id_Turma))),
 	),
 )); ?>

@@ -10,7 +10,7 @@
 	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->nome), array('view', 'id'=>$data->id_Aluno)); ?>
+	<?php echo CHtml::encode($data->nome); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
@@ -18,9 +18,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_turma')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->codTurma->descricao), 
-			array('turma/view', 'id'=>$data->codTurma->id_Turma)); ?>
+	<?php echo CHtml::encode($data->codTurma->descricao);
+	/*CHtml::link(CHtml::encode($data->codTurma->descricao), 
+			array('turma/view', 'id'=>$data->codTurma->id_Turma));*/ ?>
 	<br />
 
+	<b><?php echo CHtml::link("Visualizar Aluno", array('view', 'id'=>$data->id_Aluno)); ?></b>
 
 </div>

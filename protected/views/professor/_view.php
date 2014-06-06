@@ -10,7 +10,7 @@
 	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->nome), array('view', 'id'=>$data->id_Professor)); ?>
+	<?php echo CHtml::encode($data->nome); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
@@ -24,5 +24,7 @@
 	<b class="porra">Turmas:</b><div class="porraloca">
 	<?php echo $data->turmasToString(); ?>
 	</div><br />
+	
+	<b><?php echo CHtml::link("Visualizar Professor", array('view', 'id'=>$data->id_Professor)); ?></b>
 
 </div>

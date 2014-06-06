@@ -55,7 +55,12 @@ ANOTATAÇÕES DA ITERAÇÃO II
 - Criação de duas "<div>" para fazer o método "toString()" ser mostrado corretamente na tela utilizando CListView.
 - Alteração das "rules" de todos os Models para os campos obrigatórios ao realizar cadastro.
 
-05/06
+06/06
 - Alteração do redirecionamento do usuário para a página "index" ao efetuar uma exclusão (delete).
 - (Documentação) Descrição do Caso de Uso "Editar Aula".
 - (Documentação) Descrição do Caso de Uso "Excluir Aula".
+- Link "Visualizar" criados nas páginas "index".
+- Link de redirecionamento do Professor na lista de Turmas disponível apenas para usuário "admin".
+- Link de redirecionamento da Turma na visualização de uma determinada aula.
+- Link de redirecionamento da Turma na visualização de um determinado aluno.
+- Link de redirecionamento do Professor na visualização de uma determinada turma apenas para usuário "admin".

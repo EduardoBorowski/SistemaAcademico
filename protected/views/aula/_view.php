@@ -10,7 +10,7 @@
 	<br /> -->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->descricao), array('view', 'id'=>$data->id_Aula)); ?>
+	<?php echo CHtml::encode($data->descricao); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('conteudo')); ?>:</b>
@@ -33,9 +33,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_turma')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->codTurma->descricao), 
-			array('turma/view', 'id'=>$data->codTurma->id_Turma)); ?>
+	<?php echo CHtml::encode($data->codTurma->descricao);
+	/*CHtml::link(CHtml::encode($data->codTurma->descricao), 
+			array('turma/view', 'id'=>$data->codTurma->id_Turma));*/ ?>
 	<br />
-
+	
+	<b><?php echo CHtml::link("Visualizar Aula", array('view', 'id'=>$data->id_Aula)); ?></b>
 
 </div>

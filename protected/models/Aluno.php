@@ -60,7 +60,7 @@ class Aluno extends CActiveRecord
 			'id_Aluno' => 'Id Aluno',
 			'nome' => 'Nome',
 			'email' => 'Email',
-			'Turma' => 'Cod Turma',
+			'cod_turma' => 'Turma',
 		);
 	}
 

@@ -24,16 +24,20 @@ $this->menu=array(
 	'attributes'=>array(
 		'id_Turma',
 		'descricao',
-		array('label'=>'Professor', 'value'=>$model->codProf->nome),
+		array('label'=>'Professor', 'value'=>$model->codProf->nome, 'visible'=>Yii::app()->user->name != "admin",),
+		array('label'=>'Professor',
+				'type'=>'raw',
+				'visible'=>Yii::app()->user->name == "admin",
+				'value'=>CHtml::link($model->codProf->nome, array('professor/view','id'=>$model->codProf->id_Professor))),
 		array(
-			'name'=>'Aulas', // give new column a name
-			'type'=>'HTML', // set it to manual HTML
-			'value'=>$model->aulasToString() // here is where you call the new function
+			'name'=>'Aulas',
+			'type'=>'HTML',
+			'value'=>$model->aulasToString()
 		),
 		array(
-			'name'=>'Alunos', // give new column a name
-			'type'=>'HTML', // set it to manual HTML
-			'value'=>$model->alunosToString() // here is where you call the new function
+			'name'=>'Alunos',
+			'type'=>'HTML',
+			'value'=>$model->alunosToString()
 		),
 	),
 )); ?>
