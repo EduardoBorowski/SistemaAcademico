@@ -33,3 +33,30 @@ $this->menu=array(
 				'value'=>CHtml::link($model->codTurma->descricao, array('turma/view','id'=>$model->codTurma->id_Turma))),
 	),
 )); ?>
+
+<?php /*$this->widget('zii.widgets.grid.CGridView', array(
+		'id'=>'aluno-grid',
+		'dataProvider'=>$dataProvider,
+		'columns'=>array(
+			//'id_Aluno',
+			'nome',
+			'email',
+			//array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
+			/*array(
+				'class'=>'CButtonColumn',
+				'template'=>'{view}{update}{delete}',
+				'buttons' => array(
+					'view'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/view", array("id"=>$data->primaryKey))',
+					),
+					'update'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/update", array("id"=>$data->primaryKey))',
+					),
+					'delete'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/delete", array("id"=>$data->primaryKey))',
+					)
+				)
+			),
+		),
+	));*/
+?>

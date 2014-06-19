@@ -1,0 +1,12 @@
+ANOTATAÇÕES DA ITERAÇÃO III
+
+11/06
+- Criação do 'aulasProvider' no 'TurmaController'.
+- Utilização de um CGridView para listar as aulas com 'aulasProvider' no 'view' de Turma.
+- Criação do 'alunosProvider' no 'TurmaController'.
+- Utilização de um CGridView para listar os alunos com 'alunosProvider' no 'view' de Turma.
+
+18/06
+- Mudança do redirecionamento do "professor" autenticado para "Turmas".
+- (Documentação) Criação da Tabela "Frequencia" no "Banco ER" e no Banco de Dados "sistacademico".
+- Model e CRUD para "Frequencia" no gii (Yii code generator).

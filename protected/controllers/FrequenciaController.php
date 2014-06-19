@@ -1,6 +1,6 @@
 <?php
 
-class AulaController extends Controller
+class FrequenciaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,18 +27,18 @@ class AulaController extends Controller
 	public function accessRules()
 	{
 		return array(
-			/*array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
-			),*/
-			array('allow', // allow authenticated user to perform ALL actions
-				'actions'=>array('index','view','create','update','admin','delete'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
-			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
-			),*/
+			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -51,20 +51,8 @@ class AulaController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$dataProvider = new CActiveDataProvider('Aluno', array(
-				'criteria'=>array(
-				    'with'=>array(
-				        'codTurma',
-				    ),
-				    'with'=>array(
-				    	'codTurma.aulas',
-				    ),
-					'condition'=>'"id_Aula"='.$id
-				),
-			));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			'dataProvider'=>$dataProvider,
 		));
 	}
 
@@ -74,16 +62,16 @@ class AulaController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Aula;
+		$model=new Frequencia;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Aula']))
+		if(isset($_POST['Frequencia']))
 		{
-			$model->attributes=$_POST['Aula'];
+			$model->attributes=$_POST['Frequencia'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_Aula));
+				$this->redirect(array('view','id'=>$model->id_Frequencia));
 		}
 
 		$this->render('create',array(
@@ -103,11 +91,11 @@ class AulaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Aula']))
+		if(isset($_POST['Frequencia']))
 		{
-			$model->attributes=$_POST['Aula'];
+			$model->attributes=$_POST['Frequencia'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_Aula));
+				$this->redirect(array('view','id'=>$model->id_Frequencia));
 		}
 
 		$this->render('update',array(
@@ -126,7 +114,7 @@ class AulaController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -134,27 +122,10 @@ class AulaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$userId = $_SESSION['usuario']->id_Professor;
-		$username = $_SESSION['usuario']->username;
-		if($username == "admin"){
-			$dataProvider=new CActiveDataProvider('Aula');
-			$this->render('index',array(
-					'dataProvider'=>$dataProvider,
-			));
-		}
-		else {
-			$dataProvider = new CActiveDataProvider('Aula', array(
-				'criteria'=>array(
-				    'with'=>array(
-				        'codTurma'
-				    ),
-				    'condition' => 'codTurma.cod_prof='.$_SESSION['usuario']->id_Professor
-				),
-			));
-			$this->render('index',array(
-					'dataProvider'=>$dataProvider,
-			));
-		}
+		$dataProvider=new CActiveDataProvider('Frequencia');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 	/**
@@ -162,10 +133,10 @@ class AulaController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Aula('search');
+		$model=new Frequencia('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Aula']))
-			$model->attributes=$_GET['Aula'];
+		if(isset($_GET['Frequencia']))
+			$model->attributes=$_GET['Frequencia'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -176,12 +147,12 @@ class AulaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Aula the loaded model
+	 * @return Frequencia the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Aula::model()->findByPk($id);
+		$model=Frequencia::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -189,11 +160,11 @@ class AulaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Aula $model the model to be validated
+	 * @param Frequencia $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='aula-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='frequencia-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

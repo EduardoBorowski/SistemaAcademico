@@ -51,8 +51,26 @@ class TurmaController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$aulasProvider = new CActiveDataProvider('Aula', array(
+				'criteria'=>array(
+						'condition' => 't.cod_turma='.$id
+				),
+		));
+		
+		$alunosProvider = new CActiveDataProvider('Aluno', array(
+				'criteria'=>array(
+						'condition' => 't.cod_turma='.$id,
+						'order' => 't.nome ASC',
+				),
+				'pagination'=>array(
+					'pageSize'=> 30,
+				)
+		));
+		
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'aulasProvider' => $aulasProvider,
+			'alunosProvider' => $alunosProvider,
 		));
 	}
 

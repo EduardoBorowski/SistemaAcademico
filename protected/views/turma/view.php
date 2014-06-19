@@ -29,7 +29,7 @@ $this->menu=array(
 				'type'=>'raw',
 				'visible'=>Yii::app()->user->name == "admin",
 				'value'=>CHtml::link($model->codProf->nome, array('professor/view','id'=>$model->codProf->id_Professor))),
-		array(
+		/*array(
 			'name'=>'Aulas',
 			'type'=>'HTML',
 			'value'=>$model->aulasToString()
@@ -38,6 +38,67 @@ $this->menu=array(
 			'name'=>'Alunos',
 			'type'=>'HTML',
 			'value'=>$model->alunosToString()
-		),
+		),*/
 	),
 )); ?>
+
+<br />
+<h3>Aulas Ministradas para esta Turma</h3>
+<?php echo CHtml::link('Adicionar aula', array('aula/create', 'cod_turma'=>$model->id_Turma)); ?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+		'id'=>'aula-grid',
+		'dataProvider'=>$aulasProvider,
+		'columns'=>array(
+			//'id_Aula',
+			'descricao',
+			'conteudo',
+			array('name'=>'dataAula', 'value'=>'date("d/m/Y", strtotime($data->dataAula))'),
+			array('name'=>'horaInicio', 'value'=>'date("H:i", strtotime($data->horaInicio))'),
+			array('name'=>'horaTermino', 'value'=>'date("H:i", strtotime($data->horaTermino))'),
+			//array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
+			array(
+				'class'=>'CButtonColumn',
+				'template'=>'{view}{update}{delete}',
+				'buttons' => array(
+					'view'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/view", array("id"=>$data->primaryKey))',
+					),
+					'update'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/update", array("id"=>$data->primaryKey))',
+					),
+					'delete'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aula/delete", array("id"=>$data->primaryKey))',
+					)
+				)
+			),
+		),
+	));
+?>
+
+<h3>Alunos</h3>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+		'id'=>'aluno-grid',
+		'dataProvider'=>$alunosProvider,
+		'columns'=>array(
+			//'id_Aluno',
+			'nome',
+			'email',
+			array(
+				'class'=>'CButtonColumn',
+				'template'=>'{view}',
+				'buttons' => array(
+					'view'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aluno/view", array("id"=>$data->primaryKey))',
+					),
+					/*'update'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aluno/update", array("id"=>$data->primaryKey))',
+					),
+					'delete'=>array(
+						'url'=>'$this->grid->controller->createUrl("/aluno/delete", array("id"=>$data->primaryKey))',
+					)*/
+				)
+			),
+		),
+	));
+?>
