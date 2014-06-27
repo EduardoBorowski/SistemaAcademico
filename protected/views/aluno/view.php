@@ -29,5 +29,10 @@ $this->menu=array(
 		array('label'=>'Turma',
 				'type'=>'raw',
 				'value'=>CHtml::link($model->codTurma->descricao, array('turma/view','id'=>$model->codTurma->id_Turma))),
+		/*array(
+			'name'=>'Frequencias',
+			'type'=>'HTML',
+			'value'=>$model->frequenciasToString()
+		),*/
 	),
 )); ?>

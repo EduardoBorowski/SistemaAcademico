@@ -58,11 +58,15 @@
 		<?php echo $form->error($model,'horaTermino'); ?>
 	</div>
 
-	<div class="row">
+	<?php if(!$model->id_Aula){ ?>
+	<?php echo $form->hiddenField($model, 'cod_turma', array('value'=>$cod_turma)); ?>
+	<?php } ?>
+	
+	<!-- <div class="row">
 		<?php echo $form->labelEx($model,'cod_turma'); ?>
 		<?php echo $form->dropDownList($model,'cod_turma', CHtml::listData(Turma::model()->findAll(), 'id_Turma', 'descricao')); ?>
 		<?php echo $form->error($model,'cod_turma'); ?>
-	</div>
+	</div> -->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

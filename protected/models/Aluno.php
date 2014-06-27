@@ -38,6 +38,14 @@ class Aluno extends CActiveRecord
 			array('id_Aluno, nome, email, cod_turma', 'safe', 'on'=>'search'),
 		);
 	}
+	
+	public function frequenciasToString() {
+		$return = '';
+		foreach ($this->frequencias as $frequencia) {
+			$return .= $frequencia->presenca.'<br>';
+		}
+		return $return;
+	}
 
 	/**
 	 * @return array relational rules.
@@ -48,6 +56,7 @@ class Aluno extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'codTurma' => array(self::BELONGS_TO, 'Turma', 'cod_turma'),
+			'frequencias' => array(self::HAS_MANY, 'Frequencia', 'cod_aluno'),
 		);
 	}
 

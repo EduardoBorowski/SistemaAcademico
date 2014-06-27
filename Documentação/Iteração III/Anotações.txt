@@ -10,3 +10,8 @@ ANOTATAÇÕES DA ITERAÇÃO III
 - Mudança do redirecionamento do "professor" autenticado para "Turmas".
 - (Documentação) Criação da Tabela "Frequencia" no "Banco ER" e no Banco de Dados "sistacademico".
 - Model e CRUD para "Frequencia" no gii (Yii code generator).
+
+27/06
+- Ao registrar uma nova aula, o 'cod_turma' já é passado pelo campo 'HiddenField'.
+- Lista de 'alunos' em determinada 'aula'.
+- Criação das relações 'HAS_MANY' para as frequencias em 'aulas' e 'alunos'. 

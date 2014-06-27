@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Aulas', 'url'=>array('index')),
-	array('label'=>'Registrar Aula', 'url'=>array('create')),
+	//array('label'=>'Registrar Aula', 'url'=>array('create')),
 	array('label'=>'Editar Aula', 'url'=>array('update', 'id'=>$model->id_Aula)),
 	array('label'=>'Excluir Aula', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_Aula),'confirm'=>'Você têm certeza que quer excluir este item?')),
 	array('label'=>'Pesquisar Aulas', 'url'=>array('admin')),
@@ -33,30 +33,25 @@ $this->menu=array(
 				'value'=>CHtml::link($model->codTurma->descricao, array('turma/view','id'=>$model->codTurma->id_Turma))),
 	),
 )); ?>
-
-<?php /*$this->widget('zii.widgets.grid.CGridView', array(
+<br />
+<h3>Alunos matriculados</h3>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'aluno-grid',
 		'dataProvider'=>$dataProvider,
 		'columns'=>array(
 			//'id_Aluno',
 			'nome',
-			'email',
+			//'email',
 			//array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
-			/*array(
+			array(
 				'class'=>'CButtonColumn',
-				'template'=>'{view}{update}{delete}',
+				'template'=>'{presenca}',
 				'buttons' => array(
-					'view'=>array(
-						'url'=>'$this->grid->controller->createUrl("/aula/view", array("id"=>$data->primaryKey))',
+					'presenca'=>array(
+						'url'=>'$this->grid->controller->createUrl("/frequencia/view", array("id"=>$data->primaryKey))',
 					),
-					'update'=>array(
-						'url'=>'$this->grid->controller->createUrl("/aula/update", array("id"=>$data->primaryKey))',
-					),
-					'delete'=>array(
-						'url'=>'$this->grid->controller->createUrl("/aula/delete", array("id"=>$data->primaryKey))',
-					)
 				)
 			),
 		),
-	));*/
+	));
 ?>

@@ -51,19 +51,21 @@ class AulaController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$aula = $this->loadModel($id);
 		$dataProvider = new CActiveDataProvider('Aluno', array(
 				'criteria'=>array(
 				    'with'=>array(
-				        'codTurma',
+				        'codTurma'=>array('with'=>array('aulas')) 
 				    ),
-				    'with'=>array(
-				    	'codTurma.aulas',
-				    ),
-					'condition'=>'"id_Aula"='.$id
+					'condition'=>'t.cod_turma='.$aula->cod_turma,
+					'order' => 't.nome ASC',
 				),
+				'pagination'=>array(
+						'pageSize'=> 30,
+				)
 			));
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$aula,
 			'dataProvider'=>$dataProvider,
 		));
 	}
@@ -72,7 +74,7 @@ class AulaController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($cod_turma)
 	{
 		$model=new Aula;
 
@@ -83,11 +85,24 @@ class AulaController extends Controller
 		{
 			$model->attributes=$_POST['Aula'];
 			if($model->save())
+				$criteria = new CDbCriteria;
+				$criteria->addCondition('t.id_Turma = '. $cod_turma);
+				$criteria->with = array('alunos');
+				$turma = Turma::model()->find($criteria);
+				foreach($turma->alunos as $aluno) {
+					$frequencia = new Frequencia;
+					$frequencia->cod_aluno = $aluno->id_Aluno;
+					$frequencia->cod_aula = $model->id_Aula;
+					$frequencia->presenca = 0;
+					$frequencia->save();
+					unset($frequencia);
+				}
 				$this->redirect(array('view','id'=>$model->id_Aula));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'cod_turma'=>$cod_turma,
 		));
 	}
 
