@@ -32,7 +32,7 @@ class AulaController extends Controller
 				'users'=>array('*'),
 			),*/
 			array('allow', // allow authenticated user to perform ALL actions
-				'actions'=>array('index','view','create','update','admin','delete'),
+				'actions'=>array('ausente','presente','index','view','create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -52,13 +52,13 @@ class AulaController extends Controller
 	public function actionView($id)
 	{
 		$aula = $this->loadModel($id);
-		$dataProvider = new CActiveDataProvider('Aluno', array(
+		$dataProvider = new CActiveDataProvider('Frequencia', array(
 				'criteria'=>array(
 				    'with'=>array(
-				        'codTurma'=>array('with'=>array('aulas')) 
+				        'codAluno' 
 				    ),
-					'condition'=>'t.cod_turma='.$aula->cod_turma,
-					'order' => 't.nome ASC',
+					'condition'=>'t.cod_aula='.$aula->id_Aula,
+					'order' => 'codAluno.nome ASC',
 				),
 				'pagination'=>array(
 						'pageSize'=> 30,
@@ -68,6 +68,32 @@ class AulaController extends Controller
 			'model'=>$aula,
 			'dataProvider'=>$dataProvider,
 		));
+	}
+	
+	public function actionPresente($id_Frequencia)
+	{
+		$criteria = new CDbCriteria;
+		$criteria->addCondition('id_Frequencia='. $id_Frequencia);
+		$model = Frequencia::model()->find($criteria);
+		if($model)
+		{
+			$model->presenca = 1;
+			$model->save($model);
+		}
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view', 'id' => $model->cod_aula));
+	}
+	
+	public function actionAusente($id_Frequencia)
+	{
+		$criteria = new CDbCriteria;
+		$criteria->addCondition('id_Frequencia='. $id_Frequencia);
+		$model = Frequencia::model()->find($criteria);
+		if($model)
+		{
+			$model->presenca = 0;
+			$model->save($model);
+		}
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('view', 'id' => $model->cod_aula));
 	}
 
 	/**

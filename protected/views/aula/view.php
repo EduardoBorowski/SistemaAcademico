@@ -35,23 +35,31 @@ $this->menu=array(
 )); ?>
 <br />
 <h3>Alunos matriculados</h3>
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php /*$this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'aluno-grid',
 		'dataProvider'=>$dataProvider,
+		'summaryText'=>'',
 		'columns'=>array(
 			//'id_Aluno',
-			'nome',
+			'codAluno.nome',
 			//'email',
 			//array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
 			array(
 				'class'=>'CButtonColumn',
-				'template'=>'{presenca}',
+				'template'=>'{Editar}',
 				'buttons' => array(
-					'presenca'=>array(
-						'url'=>'$this->grid->controller->createUrl("/frequencia/view", array("id"=>$data->primaryKey))',
+					'Editar'=>array(
+						'url'=>'$this->grid->controller->createUrl("/frequencia/update", array("id"=>$data->primaryKey))',
 					),
 				)
 			),
 		),
-	));
+	));*/
 ?>
+
+<?php $this->widget('zii.widgets.CListView', array(
+	'id'=>'frequencia-grid',
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_frequencia',
+	'template'=>'{items}'
+)); ?>

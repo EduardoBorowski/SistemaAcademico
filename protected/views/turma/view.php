@@ -49,6 +49,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'aula-grid',
 		'dataProvider'=>$aulasProvider,
+		'summaryText'=>'Aulas Ministradas: {count}',
 		'columns'=>array(
 			//'id_Aula',
 			'descricao',
@@ -76,10 +77,11 @@ $this->menu=array(
 	));
 ?>
 
-<h3>Alunos</h3>
+<h3>Alunos matriculados</h3>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'aluno-grid',
 		'dataProvider'=>$alunosProvider,
+		'summaryText'=>'Alunos Matriculados: {count}',
 		'columns'=>array(
 			//'id_Aluno',
 			'nome',

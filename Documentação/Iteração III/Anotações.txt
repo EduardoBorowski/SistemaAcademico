@@ -13,5 +13,8 @@ ANOTATAÇÕES DA ITERAÇÃO III
 
 27/06
 - Ao registrar uma nova aula, o 'cod_turma' já é passado pelo campo 'HiddenField'.
+- Alteração do '$dataProvider' no 'AulaController' para listar 'alunos' em determinada 'aula'.
 - Lista de 'alunos' em determinada 'aula'.
-- Criação das relações 'HAS_MANY' para as frequencias em 'aulas' e 'alunos'. 
+- Criação das relações 'HAS_MANY' para as 'frequencias' em 'aulas' e 'alunos'. 
+- Alteração do 'actionCreate' no 'AulaController' para criar 'frequencia' para todos os 'alunos' em determinada 'aula'.
+- Link 'presenca' na lista de 'alunos' em determinada 'aula' redirecionando para a 'frequencia' do 'aluno' específico.

@@ -20,21 +20,19 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'aula'); ?>
+		<?php echo $form->textField($model,'aula', array('value'=>$model->codAula->descricao, 'disabled'=>'disabled')); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'aluno'); ?>
+		<?php echo $form->textField($model,'aluno', array('value'=>$model->codAluno->nome, 'disabled'=>'disabled')); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'presenca'); ?>
 		<?php echo $form->textField($model,'presenca'); ?>
 		<?php echo $form->error($model,'presenca'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'cod_aula'); ?>
-		<?php echo $form->textField($model,'cod_aula'); ?>
-		<?php echo $form->error($model,'cod_aula'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'cod_aluno'); ?>
-		<?php echo $form->textField($model,'cod_aluno'); ?>
-		<?php echo $form->error($model,'cod_aluno'); ?>
 	</div>
 
 	<div class="row buttons">

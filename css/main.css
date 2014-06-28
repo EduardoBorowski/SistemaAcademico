@@ -251,3 +251,19 @@ div.search-form
 	display: inline-block;
 	float:left;
 }
+
+.ausente
+{
+	background-color: #FFABAB;
+}
+
+.presente
+{
+	background-color: #B7FFAB;
+	border-color: green!important;
+}
+
+.presente a, .ausente a
+{
+	float: right;
+}
