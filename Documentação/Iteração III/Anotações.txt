@@ -18,3 +18,11 @@ ANOTATAÇÕES DA ITERAÇÃO III
 - Criação das relações 'HAS_MANY' para as 'frequencias' em 'aulas' e 'alunos'. 
 - Alteração do 'actionCreate' no 'AulaController' para criar 'frequencia' para todos os 'alunos' em determinada 'aula'.
 - Link 'presenca' na lista de 'alunos' em determinada 'aula' redirecionando para a 'frequencia' do 'aluno' específico.
+- Propriedade 'summaryText' do CGridView alterado ao listar 'aulas', e 'alunos'.
+
+09/07
+- (Documentação) Criação do Caso de Uso "Gerenciar Turma" no Diagrama de Casos de Uso.
+- (Documentação) Criação do Caso de Uso "Gerenciar Frequência" no Diagrama de Casos de Uso.
+- (Documentação) Descrição detalhada do Caso de Uso "Gerenciar Turma".
+- (Documentação) Descrição detalhada do Caso de Uso "Gerenciar Frequência".
+- (Documentação) Atualização do Caso de Uso "Visualizar Aula" incluindo o Include para o Caso de Uso "Gerenciar Frequência".

@@ -21,7 +21,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id_Aula',
+		//'id_Aula',
 		'descricao',
 		'conteudo',
 		array('name'=>'dataAula', 'value'=>date("d/m/Y", strtotime($model->dataAula))),
@@ -34,7 +34,7 @@ $this->menu=array(
 	),
 )); ?>
 <br />
-<h3>Alunos matriculados</h3>
+<h3>Lista de presença dos alunos matriculados</h3>
 <?php /*$this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'aluno-grid',
 		'dataProvider'=>$dataProvider,
@@ -46,9 +46,9 @@ $this->menu=array(
 			//array('name'=>'cod_turma', 'header'=>'Turma', 'value'=>'$data->codTurma->descricao'),
 			array(
 				'class'=>'CButtonColumn',
-				'template'=>'{Editar}',
+				'template'=>'{Presen&ccedil;a}',
 				'buttons' => array(
-					'Editar'=>array(
+					'Presen&ccedil;a'=>array(
 						'url'=>'$this->grid->controller->createUrl("/frequencia/update", array("id"=>$data->primaryKey))',
 					),
 				)
